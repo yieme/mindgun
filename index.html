@@ -54,10 +54,8 @@
 		<script>
 			var part=(location+'').split('#');
 			var room=part[1];
-			if (!room) location=part[0]+'#'+(1*new Date).toString(36)+Math.random().toString(36);
 			var gun     = Gun(['https://gun-us.herokuapp.com/gun','https://gun-eu.herokuapp.com/gun','https://gunjs.herokuapp.com/gun']);
-			var mindgun = gun.get('mindgun_room_'+room);
-			console.log('room:', room);
+			var mindgun = gun.get('MindGun').get('Room_'+room);
 			var textVal = false;
 			function textChange() {
 				var val = $('textArea').val();
@@ -69,13 +67,17 @@
 				textVal = val;
 			}
 
-			setInterval(textChange, 99)
-
-			mindgun.on(function(data) {
-				console.log('get:', data.length)
-				$('#textArea').val(data+'');
-				textVal=false;
-			})
+			if (room !== undefined && room) {
+				console.log('room:', room);
+				setInterval(textChange, 99)
+				mindgun.on(function(data) {
+					console.log('get:', data.length)
+					$('#textArea').val(data+'');
+					textVal=false;
+				})
+			} else {
+				location=part[0]+'#'+(1*new Date).toString(36)+Math.random().toString(36);
+			}
 		</script>
 </head>
 
