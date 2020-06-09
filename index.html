@@ -56,7 +56,7 @@
 			var room=part[1];
 			var now=new Date();
 			if (!room) location=part[0]+'#'+(1*new Date).toString(36)+Math.random().toString(36);
-			var gun     = Gun('https://gunjs.herokuapp.com/gun');
+			var gun     = Gun(['https://gun-us.herokuapp.com/gun','https://gun-eu.herokuapp.com/gun','https://gunjs.herokuapp.com/gun']);
 			var mindgun = gun.get('mindgun').get('room_'+room);
 			console.log('room:', room);
 			var textVal = false;
