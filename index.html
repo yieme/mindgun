@@ -52,9 +52,10 @@
 		<script src="scripts/gun/0.2020.520/gun.min.js"></script>
 		<script src="scripts/main.js"></script>
 		<script>
-			var room=(location+'').split('#')[1];
+			var part=(location+'').split('#');
+			var room=part[1];
 			var now=new Date();
-			if (!room) location=loc+'#'+(1*new Date).toString(36)+Math.random().toString(36);
+			if (!room) location=part[0]+'#'+(1*new Date).toString(36)+Math.random().toString(36);
 			var gun     = Gun('https://gunjs.herokuapp.com/gun');
 			var mindgun = gun.get('mindgun').get('room_'+room);
 			console.log('room:', room);
