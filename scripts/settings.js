@@ -1,12 +1,12 @@
 // Helper functions for saving and loading user settings with localstorage.
 settings = (function() {
 	// Used for seperating settings on the same domain
-	const prefix = "text2mindmap";
-	
+	const prefix = "mindgun";
+
 	// Default values for various user settings.
 	const defaultValues = {
-		"documentContent": "Text2MindMap\n\tTurn tab-indented lists into mind maps\n\t\tPress Tab to indent lines\n\t\tPress Shift + Tab to unindent lines\n\tDrag nodes to re-organize them\n\tThis project is based on the now dead site Text2MindMap.com",
-		"documentTitle": "Untitled Document"
+		"documentContent": "mind map\n\tTab\n\t\tto indent\n\t\tthe line\n\tShift + Tab\n\t\tto unindent\n\t\tthe line\n\tDrag\n\t\tto re-organize\n\t\tthe nodes",
+		"documentTitle": "MyMindGun"
 	};
 
 	// Used for converting settings values to actual font-familys.
